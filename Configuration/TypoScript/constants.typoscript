@@ -1,0 +1,23 @@
+##############
+### PAGE ###
+##############
+
+page {
+    fonts{
+    
+		# cat = t3up: fonts//01; type=string; label=LLL:EXT:t3up/Resources/Private/Language/locallang_constants.xlf:font
+        font                        = Atlas Grotesk   
+        fontdef                     = typo3conf/ext/design/Resources/Public/Sass/
+        fontpath                    = typo3conf/ext/design/Resources/Public/Fonts/
+        # cat = t3up: fonts//04; type =string; label =LLL:EXT:t3up/Resources/Private/Language/locallang_constants.xlf:font2
+        font2                        = Bodoni Moda        
+        fontdef2                     = typo3conf/ext/design/Resources/Public/Sass/
+        fontpath2                    = typo3conf/ext/design/Resources/Public/Fonts/
+    }
+}
+
+# cat=t3up: footer//99; type=int+; label=Bewerben
+page.footer.bewerben =
+
+page.design.template = EXT:design/Resources/Private/Templates/Fluidtemplates/Templates/
+page.footer.logo = typo3conf/ext/hda/Resources/Public/Logos/design-n-lgo.svg

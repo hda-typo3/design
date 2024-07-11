@@ -1,0 +1,29 @@
+
+
+
+@import 'EXT:design/Configuration/TypoScript/Content/*.typoscript'
+
+page.includeJSFooterlibs {
+//	foundlib		  			 	= EXT:design/Resources/Public/JavaScript/foundation.js
+//	foundlibstart		  			= EXT:design/Resources/Public/JavaScript/startfbg.js
+
+
+
+
+}
+
+page.includeCSS{
+   	fbg                             = EXT:design/Resources/Public/Sass/_fbg.scss
+}
+
+   	
+plugin.tx_news{
+	view{
+		templateRootPaths.20 	= EXT:design/Resources/Private/Templates/News/Templates/
+	//	partialRootPaths.20 	= EXT:design/Resources/Private/Templates/News/Partials/		
+	}
+}
+
+
+
+page.10.templateRootPaths.20       				= {$page.design.template}

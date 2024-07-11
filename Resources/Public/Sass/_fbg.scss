@@ -1,0 +1,121 @@
+
+header	{										border-bottom: 0px solid #dadada;
+	> .container 								{ position: inherit; max-width: 100vW}
+
+	.blockNav>ul>li>a							{border-bottom-width: $v1; transition: border ease .3s; text-transform: none; padding-top: 35px; }
+	
+	.blockNav>ul>li>a:hover						{border-bottom-color: #ccc; ;}
+	.blockNav>ul>li.cur>a						{border-bottom-color: #efefef; font-weight: 500;}	
+	.blockNav>ul>li.act>a						{border-bottom-color: #efefef; font-weight: 500;}
+	a.btn										{white-space: nowrap;}
+
+    .blockNav{ 
+		.block									{position: absolute; width: 100vw; height: 100vh; left: 0; background-color: $subNavBG;z-index: 1002; padding: $v3; margin: 0; box-shadow: 0  $v1 $v1 $v1  rgba(0,0,0,.1);}
+        > ul > li > .block >  ul                {width: 100%; list-style: none;  ; }
+        > ul > li > .block >ul[aria-hidden=false]   	{display: flex !important; opacity: 1 !important; margin: auto; }          
+        > ul > li > .block >ul > li                 	{width: auto; flex: 1 1 auto!important; display: inline-block; margin: 0 0 0 -0.1875rem; padding: 0; vertical-align: top; }
+        > ul > li > .block >ul > li.drittel         	{width: 33.333%;}     
+        > ul > li > .block >ul > li.viertel         	{width: 25%;}    
+        > ul > li > .block >ul > li.fuenftel        	{width: 20%;}     
+        > ul > li > .block >ul > li.sechstel        	{width: 16.666%;}            
+        > ul > li > .block >ul > li.siebtel         	{width: 14.28%;}     
+        > ul > li > .block >ul > li.achtel          	{width: 12.5%;}             
+        > ul > li > .block >ul > li.neuntel         	{width: 11.11%;}     
+        > ul > li > .block >ul > li.zehntel         	{width: 10%;}             
+       
+        > ul > li > .block >ul li                   	{position: relative;} 
+        > ul > li > .block >ul li a                 	{margin-left: $v4; display: block; color: $subnavLinkColor; }
+        > ul > li > .block >ul > li > a             	{font-weight: $boldweight; letter-spacing: .01em; padding-bottom: $v3; }  
+        > ul > li > .block >ul li a:hover           	{color: $baseColor}    
+        
+        > ul > li > .block >ul li a:before          	{position: absolute; top: 0; left: 0; content:'\F0DA'; font-family: $symbol; width: $v3; text-align: center; display: inline-block; opacity: 0; height: 100%;}
+        > ul > li > .block >ul li:hover > a:before  	{opacity: 1;}  
+
+        > ul > li > .block >ul > li > ul            	{list-style: none;}  
+        > ul > li > .block >ul > li > ul > li       	{line-height: 135%;}  
+        > ul > li > .block >ul > li > ul > li a     	{padding: 0 0 $v2 0;}
+
+  } 
+
+}
+
+
+
+main{											padding-left: $v2; padding-right:  $v2;
+	
+	.content > .frame:first-of-type,
+	h1 											{/*padding-left: $v2 !important; padding-right:  $v2*/}
+	
+	
+	h1,							
+	.frame-header:first-of-type h2,	
+	.frame-starter:first-of-type h2				{font-family: $font2; color: $baseColor; font-size: 8vh; font-weight: normal; margin-bottom: 5vh}		
+
+	.frame-extended > .row	> div				{display: flex; align-items: center;}		
+	
+	.frame-starter{								height: 90vh; display: flex; align-items: center;  
+		
+	}		
+					
+	
+	.subnavi{									background: #efefef; 
+		ul										{list-style-type: none; padding: 0; }
+		ul li									{transition: border ease .3s; margin: 0; border-bottom-color: transparent; border-bottom-width:  $v1; border-bottom-style: solid;}
+		ul li a									{font-weight: normal;}	
+		ul li.cur,
+		ul li:hover								{border-bottom-color: #fff; }
+		ul li.cur								{font-weight: 500; }
+	}
+	
+	.frame-projectnavi{								text-align: center; margin-bottom: $v3; width: 100%; display: block;
+		
+	}
+
+	
+	.news {
+			.news-img-wrap.v2					{display: block;}
+		
+			.news-img-wrap.v2 .outer 			{width: 50%; float: left;}
+			
+			.news-img-wrap.v2 .outer .mediaelement 	{aspect-ratio: 1 / 1;	overflow: hidden; display: flex; justify-content: center;	align-items: center; 
+				img								{object-fit: cover; min-height: 100%;	width: auto; height: 100%; min-width: 100%; max-width: inherit;}	
+			}	
+	
+	}
+	
+	.f3-widget-paginator						{justify-content: center; width: 100%; margin-bottom: $v3; }
+	
+	p.lecturers a.link-internal::before			{content: ''; padding: 0;}
+	
+	.projectSingle img							{max-height: 30vh !important; margin-bottom: $v3;}
+	
+
+}
+
+
+footer {										position: absolute; width: 100%; z-index: 2; transition: all ease .3s; bottom: 0; overflow: hidden; color: $footer1TextColor; background: $footer1BgColor;	
+	*										  	{text-decoration: none; list-style: none;}
+	.footer0 									{background: #efefef; color: #151515;}  
+	.footer1{
+		
+		a:before,
+		a										{color: $footer1LinkColor;}
+		
+	}
+	.footerlogo img								{width: auto; height: auto;}
+	.xxtra										{
+												text-align: right;
+		fieldset								{justify-content: flex-end;}
+		fieldset button							{color: transparent; border: 0;}	
+		ul li									{display: inline-block; padding-left: $v3; font-size: 120%;}
+	}
+	
+}
+
+
+@media screen and (min-width: 1150px) 	{			padding-left: 0!important; padding-right:  0;
+	main{
+		
+		h1 											{padding-left: 0 !important; padding-right:  0}
+	}
+}

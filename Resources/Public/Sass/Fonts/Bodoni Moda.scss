@@ -1,0 +1,11 @@
+@font-face{
+  font-weight:500;
+  font-style:normal;
+  font-variant:normal;
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+  font-family:'Bodoni Moda';
+  font-display: swap;
+  src:  url('#{$fontpath}Bodoni Moda/BodoniModa-Regular.ttf') format('truetype');
+}
+        

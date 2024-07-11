@@ -1,0 +1,615 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+	  
+    <f:layout name="General" />
+
+    <f:section name="content">
+    	<!--TYPO3SEARCH_end-->
+    	<f:if condition="{news}">
+    		<f:then>
+
+    		<f:comment>Origin / no extra template</f:comment>
+	    		<f:if condition="{settings.templateLayout} == '' ">
+					<div class="news-list-view" id="news-container-{contentObjectData.uid}">
+						<f:if condition="{settings.hidePagination}">
+							<f:then>
+								<f:for each="{news}" as="newsItem" iteration="iterator">
+									<f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+								</f:for>
+							</f:then>
+							<f:else>
+		                        <f:if condition="{settings.list.paginate.insertAbove}">
+		                            <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+		                        </f:if>
+		                        <f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
+		                            <f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+		                        </f:for>
+		                        <f:if condition="{settings.list.paginate.insertBelow}">
+		                            <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+		                        </f:if>
+							</f:else>
+						</f:if>
+					</div>
+    			</f:if>	
+    			
+ 
+    			<f:comment>Teasermenue</f:comment>
+	    		<f:if condition="{settings.templateLayout} == 1">
+		    		<f:if condition="{settings.hidePagination} == 1">		
+						<f:then>	    		
+						   <f:comment>1 Items Flex </f:comment>
+			    	       <f:if condition="{settings.items} == 1">
+			                     <div class="news teaser">
+		                           <f:for each="{news}" as="newsItem" iteration="iterator">
+		                                <f:render partial="List/Teaser" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+		                            </f:for>
+			                    </div>  
+			               </f:if>     
+			               
+			    	       <f:comment>2 Items Flex </f:comment>	
+			    	       <f:if condition="{settings.items} == 2">
+								<div class="news teaser twoItemsStat w-auto">
+									<f:for each="{news}" as="newsItem" iteration="iterator">
+									    <f:if condition="{iterator.isFirst}">
+									        <div class="row align-items-stretch m-0">
+									    </f:if>
+									    <f:if condition="{iterator.cycle} % 2">
+									        <f:then>
+									            <f:render partial="List/TeaserStat" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									        </f:then>
+									
+									        <f:else>
+									            <f:render partial="v" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									
+									            <f:if condition="{iterator.isLast}">
+									                <f:then></f:then>
+									                <f:else>
+									                    </div><div class="row align-items-stretch m-0">
+									                </f:else>
+									            </f:if>
+									        </f:else>
+									    </f:if>
+									    <f:if condition="{iterator.isLast}">
+									        </div>
+									    </f:if>
+									</f:for>
+								</div>                     
+			    	       </f:if>
+			    	       
+			    	       <f:comment>3 Items Flex </f:comment>
+			    	       <f:if condition="{settings.items} == 3">
+				    	       <div class="news teaser threeItemsStat w-auto">
+									<f:for each="{news}" as="newsItem" iteration="iterator">
+									    <f:if condition="{iterator.isFirst}">
+									        <div class="row align-items-stretch m-0">
+									    </f:if>
+									    <f:if condition="{iterator.cycle} % 3">
+									        <f:then>
+									            <f:render partial="List/TeaserStat" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									        </f:then>
+									
+									        <f:else>
+									            <f:render partial="List/TeaserStat" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									
+									            <f:if condition="{iterator.isLast}">
+									                <f:then></f:then>
+									                <f:else>
+									                    </div><div class="row align-items-stretch m-0">
+									                </f:else>
+									            </f:if>
+									        </f:else>
+									    </f:if>
+									    <f:if condition="{iterator.isLast}">
+									        </div>
+									    </f:if>
+									</f:for>
+								</div>                     
+			    	       </f:if>	   	       
+			    	       
+			    	       <f:comment>4 Items Flex </f:comment>
+			    	       <f:if condition="{settings.items} == 4">
+				    	       <div class="news teaser fourItemsStat w-auto">
+									<f:for each="{news}" as="newsItem" iteration="iterator">
+									    <f:if condition="{iterator.isFirst}">
+									        <div class="row align-items-stretch m-0">
+									    </f:if>
+									    <f:if condition="{iterator.cycle} % 4">
+									        <f:then>
+									            <f:render partial="List/TeaserStat" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									        </f:then>
+									        <f:else>
+									            <f:render partial="List/TeaserStat" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									
+									            <f:if condition="{iterator.isLast}">
+									                <f:then></f:then>
+									                <f:else>
+									                    </div><div class="row align-items-stretch m-0">
+									                </f:else>
+									            </f:if>
+									        </f:else>
+									    </f:if>
+									
+									    <f:if condition="{iterator.isLast}">
+									        </div>
+									    </f:if>
+									</f:for>
+								</div>
+			    	       </f:if> 					    	       
+						</f:then>
+						
+						<f:else>
+		                    <div class="news teaser">		    			
+		                        <f:if condition="{settings.list.paginate.insertAbove}">
+		                                  <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+		                        </f:if>
+		                        <f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
+		                            <f:render partial="List/Teaser" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+		                        </f:for>
+		                        <f:if condition="{settings.list.paginate.insertBelow}">
+		                            <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+		                        </f:if>
+		                      </div>
+						</f:else>
+					</f:if>	
+	       		</f:if>	             
+
+                  
+            	<f:comment>Calendarmenue</f:comment>      
+	    		<f:if condition="{settings.templateLayout} == 2">
+		    		<f:if condition="{settings.hidePagination} == 1">	
+            			<f:then>
+						   <f:comment>1 Calendar Flex </f:comment>
+			       	       <f:if condition="{settings.items} == 1">
+			                    <div class="news calendar">
+			                       <f:for each="{news}" as="newsItem" iteration="iterator">
+			                            <f:render partial="List/Calendar" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+			                        </f:for>
+			                    </div>   
+			    	       </f:if>
+			    	       
+			    	       <f:comment>2 Calendar Items Flex </f:comment>
+			    	       <f:if condition="{settings.items} == 2">
+								<div class="news calendar twoItemsStat w-auto">
+									<f:for each="{news}" as="newsItem" iteration="iterator">
+									    <f:if condition="{iterator.isFirst}">
+									        <div class="row align-items-stretch m-0">
+									    </f:if>
+									
+									    <f:if condition="{iterator.cycle} % 2">
+									        <f:then>
+									            <f:render partial="List/TwoCalendarStat" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									        </f:then>
+									
+									        <f:else>
+									            <f:render partial="List/TwoCalendarStat" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									
+									            <f:if condition="{iterator.isLast}">
+									                <f:then></f:then>
+									                <f:else>
+									                    </div><div class="row align-items-stretch m-0">
+									                </f:else>
+									            </f:if>
+									        </f:else>
+									    </f:if>
+									    <f:if condition="{iterator.isLast}">
+									        </div>
+									    </f:if>
+									</f:for>
+								</div>                     
+			    	       </f:if>
+	   	          	       
+			    	       <f:comment>3 Calendar Items Flex </f:comment>
+			    	       <f:if condition="{settings.items} == 3">
+				    	       <div class="news calendar threeItemsStat w-auto">
+									<f:for each="{news}" as="newsItem" iteration="iterator">
+									    <f:if condition="{iterator.isFirst}">
+									        <div class="row align-items-stretch m-0">
+									    </f:if>
+									    <f:if condition="{iterator.cycle} % 3">
+									        <f:then>
+									            <f:render partial="List/ThreeCalendarStat" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									        </f:then>
+									
+									        <f:else>
+									            <f:render partial="List/ThreeCalendarStat" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									
+									            <f:if condition="{iterator.isLast}">
+									                <f:then></f:then>
+									                <f:else>
+									                    </div><div class="row align-items-stretch m-0">
+									                </f:else>
+									            </f:if>
+									        </f:else>
+									    </f:if>
+									    <f:if condition="{iterator.isLast}">
+									        </div>
+									    </f:if>
+									</f:for>
+								</div>
+			    	       </f:if>
+			    	       
+			    	       <f:comment>4 Calendar Items Flex </f:comment>
+			    	       <f:if condition="{settings.items} == 4">
+				    	       <div class="news calendar fourItemsStat w-auto">
+									<f:for each="{news}" as="newsItem" iteration="iterator">
+									    <f:if condition="{iterator.isFirst}">
+									        <div class="row align-items-stretch m-0">
+									    </f:if>
+									
+									    <f:if condition="{iterator.cycle} % 4">
+									        <f:then>
+									            <f:render partial="List/FourCalendarStat" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									        </f:then>
+									
+									        <f:else>
+									            <f:render partial="List/FourCalendarStat" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									
+									            <f:if condition="{iterator.isLast}">
+									                <f:then></f:then>
+									                <f:else>
+									                    </div><div class="row align-items-stretch m-0">
+									                </f:else>
+									            </f:if>
+									        </f:else>
+									    </f:if>
+									
+									    <f:if condition="{iterator.isLast}">
+									        </div>
+									    </f:if>
+									</f:for>
+								</div>
+	    	      	 		</f:if>     
+	    	      	 	</f:then>	
+
+		    			<f:else>
+		                    <div class="news calendar">
+		                        <f:if condition="{settings.list.paginate.insertAbove}">
+		                                  <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+		                        </f:if>
+		                        <f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
+		                            <f:render partial="List/Calendar" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+		                        </f:for>
+		                        <f:if condition="{settings.list.paginate.insertBelow}">
+		                            <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+		                        </f:if>
+		                      </div>  
+	                      </f:else>  
+	                   </f:if>   
+            	</f:if>
+            
+
+            <f:comment>Big Image menue</f:comment>      
+	           	<f:if condition="{settings.templateLayout} == 3">		
+		    		<f:if condition="{settings.hidePagination} == 1">	
+	           			<f:then>
+						   <f:comment>1 Big Image Flex </f:comment>
+			       	       <f:if condition="{settings.items} == 1">
+			                    <div class="news bigimage">
+			                       <f:for each="{news}" as="newsItem" iteration="iterator">
+			                            <f:render partial="List/Bigimage" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+			                        </f:for>
+			                    </div>   
+			    	       </f:if>
+			    	       
+			    	       <f:comment>2 Big Image Items Flex </f:comment>
+			    	       <f:if condition="{settings.items} == 2">
+								<div class="news bigimage twoItemsStat w-auto">
+									<f:for each="{news}" as="newsItem" iteration="iterator">
+									    <f:if condition="{iterator.isFirst}">
+									        <div class="row align-items-stretch m-0">
+									    </f:if>
+									
+									    <f:if condition="{iterator.cycle} % 2">
+									        <f:then>
+									            <f:render partial="List/TwoBigimage" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									        </f:then>
+									
+									        <f:else>
+									            <f:render partial="List/TwoBigimage" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									
+									            <f:if condition="{iterator.isLast}">
+									                <f:then></f:then>
+									                <f:else>
+									                    </div><div class="row align-items-stretch m-0">
+									                </f:else>
+									            </f:if>
+									        </f:else>
+									    </f:if>
+									    <f:if condition="{iterator.isLast}">
+									        </div>
+									    </f:if>
+									</f:for>
+								</div>                     
+			    	       </f:if>	   	       
+		   	       
+			    	       <f:comment>3 Big Image Items Flex </f:comment>
+			    	       <f:if condition="{settings.items} == 3">
+				    	       <div class="news bigimage threeItemsStat w-auto">
+									<f:for each="{news}" as="newsItem" iteration="iterator">
+									    <f:if condition="{iterator.isFirst}">
+									        <div class="row align-items-stretch m-0">
+									    </f:if>
+									    <f:if condition="{iterator.cycle} % 3">
+									        <f:then>
+									            <f:render partial="List/ThreeBigimage" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									        </f:then>
+									
+									        <f:else>
+									            <f:render partial="List/ThreeBigimage" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									
+									            <f:if condition="{iterator.isLast}">
+									                <f:then></f:then>
+									                <f:else>
+									                    </div><div class="row align-items-stretch m-0">
+									                </f:else>
+									            </f:if>
+									        </f:else>
+									    </f:if>
+									    <f:if condition="{iterator.isLast}">
+									        </div>
+									    </f:if>
+									</f:for>
+								</div>                     
+			    	       </f:if>	   	       
+		   	       
+				    	       
+			    	       <f:comment>4 Big Image Items Flex </f:comment>
+			    	       <f:if condition="{settings.items} == 4">
+				    	       <div class="news bigimage fourItemsStat w-auto">
+									<f:for each="{news}" as="newsItem" iteration="iterator">
+									    <f:if condition="{iterator.isFirst}">
+									        <div class="row align-items-stretch m-0">
+									    </f:if>
+									
+									    <f:if condition="{iterator.cycle} % 4">
+									        <f:then>
+									            <f:render partial="List/FourBigimage" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									        </f:then>
+									
+									        <f:else>
+									            <f:render partial="List/FourBigimage" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									
+									            <f:if condition="{iterator.isLast}">
+									                <f:then></f:then>
+									                <f:else>
+									                    </div><div class="row align-items-stretch m-0">
+									                </f:else>
+									            </f:if>
+									        </f:else>
+									    </f:if>
+									
+									    <f:if condition="{iterator.isLast}">
+									        </div>
+									    </f:if>
+									</f:for>
+								</div>
+			    	       </f:if>    
+			    	    </f:then>
+			    	    <f:else>    	       	
+	            			<div class="news bigimage">
+		                         <f:if condition="{settings.list.paginate.insertAbove}">
+		                             <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+		                         </f:if>
+		                         <f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
+		                                 <f:render partial="List/Bigimage" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+		                         </f:for>
+		                         <f:if condition="{settings.list.paginate.insertBelow}">
+		                             <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+		                         </f:if>
+		                      </div>
+	                      </f:else>   
+	                 </f:if>        
+            	</f:if>
+ 
+    	       <f:comment>1 Items small Image</f:comment>
+    	       <f:if condition="{settings.templateLayout} == 4">
+	    	       <div class="news smallimage">
+		    			<f:if condition="{settings.hidePagination}">
+							<f:then>
+								<f:for each="{news}" as="newsItem" iteration="iterator">
+									<f:render partial="List/SmallImage" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+								</f:for>
+							</f:then>
+							<f:else>
+                                <f:if condition="{settings.list.paginate.insertAbove}">
+                                    <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+                                </f:if>
+                                <f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
+                                        <f:render partial="List/SmallImage" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                                </f:for>
+                                <f:if condition="{settings.list.paginate.insertBelow}">
+                                    <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+                                </f:if>
+							</f:else>
+						</f:if>
+					</div>
+ 				</f:if>   
+ 				
+ 				<f:comment>News Wall</f:comment>  
+	    		<f:if condition="{settings.templateLayout} == 5">
+                     <div id="DES freewall" class="news wall free-wall">
+                          <f:for each="{news}" as="newsItem" iteration="iterator">
+                               <f:render partial="List/Wall" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                           </f:for>
+                    </div>  
+			   </f:if>     
+
+                <f:comment>Carousel 1 Element</f:comment>              
+                <f:if condition="{settings.templateLayout} == 30">      
+               
+                        <div id="slideshow{contentObjectData.uid}"  
+                            class="news t3up_slider w-100 oneItem carousel slide w-auto sliderstyle-{settings.style} {settings.animation}" 
+                            data-ride="{f:if(condition:'{settings.autostart}',then: 'carousel')}" 
+                            data-bs-ride="{f:if(condition:'{settings.autostart}',then: 'carousel')}" 
+                            data-interval="{settings.carouselSpeed}" 
+                            style="{f:if(condition:'{settings.carouselwidth}',then:'max-width:{settings.carouselwidth}px;')}{f:if(condition:'{settings.maxheight}',then:'max-height:{settings.maxheight}px;')}">
+                                
+                        <!-- Indicators -->
+                        <f:if condition="{settings.controlNav}">
+                            <ol class="carousel-indicators">
+                                <f:for each="{news}" as="helper" iteration="iteration">
+                                    <li 
+                                        data-target="#slideshow{contentObjectData.uid}" 
+                                        data-bs-target="#slideshow{contentObjectData.uid}" 
+                                        data-slide-to="{iteration.index}"  
+                                        data-bs-slide-to="{iteration.index}"  
+                                        class="{f:if(condition: '{iteration.isFirst}', then: 'active')}"   
+                                        data-bs-touch="true">
+                                    </li>           
+                                </f:for>
+                            </ol>   
+                        </f:if>
+                        
+                            <div class="carousel-inner row w-100 mx-auto" role="listbox" data-interval="{settings.carouselSpeed}">
+                                <f:for each="{news}" as="newsItem" iteration="iterator">
+                                    <f:render partial="List/OneItem" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                                </f:for>
+                            </div>     
+                             
+                             <!-- Left and right controls -->
+                             <f:if condition="{settings.directionNav}">
+                                <div class="direction"> 
+                                    <a class="carousel-control-prev" href="#slideshow{contentObjectData.uid}" data-bs-target="#slideshow{contentObjectData.uid}" type="button" data-slide="prev"  data-bs-slide="prev" title="last slide">
+                                      <span class="symbol prev chevron-left">&#xF104</span>
+                                      <span class="sr-only visually-hidden">Previous</span>
+                                     </a>
+                                    <a class="carousel-control-next" href="#slideshow{contentObjectData.uid}" data-bs-target="#slideshow{contentObjectData.uid}" type="button" data-slide="next"  data-bs-slide="next" title="next slide">
+                                      <span class="symbol next chevron-right">&#xF105</span>
+                                      <span class="sr-only visually-hidden">Next</span>
+                                    </a>
+                                </div>  
+                            </f:if> 
+                             <!-- Left and right controls -- END -->
+                        </div>  
+                </f:if>
+                
+    			<f:comment>Carousel 3 Elements</f:comment>
+    	       	<f:if condition="{settings.templateLayout} == 31">  
+    	       		<div class="news t3up_slider w-auto">
+    	       			<f:if condition="{f:count(subject: news)} > 3">
+	    	       			<f:then>
+						   		<div id="slideshow{contentObjectData.uid}"  class="threeItems carousel slide" 
+						   		data-ride="{f:if(condition:'{settings.autostart}',then: 'carousel')}" 
+						   		data-bs-ride="{f:if(condition:'{settings.autostart}',then: 'carousel')}" 
+						   		data-interval="{settings.carouselSpeed}"
+								style="max-width:{f:if(condition:'{settings.carouselwidth}',then:'{settings.carouselwidth}px;',else:'100%;')}">
+									
+							 	<div class="carousel-inner align-items-stretch"	 role="listbox">
+	                               <f:for each="{news}" as="newsItem" iteration="iterator">
+	                                    <f:render partial="List/ThreeItems" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+	                                </f:for>     
+						        </div> 
+
+	                             <!-- Left and right controls -->
+	                             <f:if condition="{settings.directionNav}">
+	                                <div class="direction"> 
+	                                    <a class="carousel-control-prev" href="#slideshow{contentObjectData.uid}" data-bs-target="#slideshow{contentObjectData.uid}" type="button" data-slide="prev"  data-bs-slide="prev">
+	                                      <span class="symbol prev chevron-left">&#xF104</span>
+	                                      <span class="sr-only visually-hidden">Previous</span>
+	                                     </a>
+	                                    <a class="carousel-control-next" href="#slideshow{contentObjectData.uid}" data-bs-target="#slideshow{contentObjectData.uid}" type="button" data-slide="next"  data-bs-slide="next">
+	                                      <span class="symbol next chevron-right">&#xF105</span>
+	                                      <span class="sr-only visually-hidden">Next</span>
+	                                    </a>
+	                                </div>  
+	                            </f:if> 
+	                             <!-- Left and right controls -- END -->
+  							
+							    </div>
+ 							</f:then>
+						    <f:else>
+						   		<div id="c{contentObjectData.uid}" class="threeItemsStat" 
+									style="max-height:{f:if(condition:'{settings.carouselheight}',then:'{settings.carouselheight}vh;',else:'100%;')} max-width:{f:if(condition:'{settings.carouselwidth}',then:'{settings.carouselwidth}px;',else:'100%;')}">
+		
+								 	<div class="carousel-inner row w-100 mx-auto align-items-stretch"  role="listbox" {f:if(condition:'{settings.carouselheight}',then:'style="max-height: {settings.carouselheight}vh"')}>
+		                               <f:for each="{news}" as="newsItem" iteration="iterator">
+		                                    <f:render partial="List/ThreeBigimage" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+		                                </f:for>
+							        </div> 
+							     </div>    
+						    </f:else>
+					    </f:if>    
+			   		</div>	 	 
+    	       	</f:if>
+ 
+ 				
+			<f:comment>Carousel 4 Elements</f:comment>
+    	       	<f:if condition="{settings.templateLayout} == 32">     	       	
+    	       		<div class="news t3up_slider w-auto">
+    	       			<f:if condition="{f:count(subject: news)} > 4">
+	    	       			<f:then>
+						   		<div id="slideshow{contentObjectData.uid}"  class="fourItems carousel slide" 
+                                data-ride="{f:if(condition:'{settings.autostart}',then: 'carousel')}" 
+                                data-bs-ride="{f:if(condition:'{settings.autostart}',then: 'carousel')}" 
+                                data-interval="{settings.carouselSpeed}"
+                                style="max-width:{f:if(condition:'{settings.carouselwidth}',then:'{settings.carouselwidth}px;',else:'100%;')}">
+									
+							 	<div class="carousel-inner align-items-stretch"	 role="listbox">
+	                               <f:for each="{news}" as="newsItem" iteration="iterator">
+	                                    <f:render partial="List/FourItems" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+	                                </f:for>     
+						        </div> 
+
+	                             <!-- Left and right controls -->
+	                             <f:if condition="{settings.directionNav}">
+	                                <div class="direction"> 
+	                                    <a class="carousel-control-prev" href="#slideshow{contentObjectData.uid}" data-bs-target="#slideshow{contentObjectData.uid}" type="button" data-slide="prev"  data-bs-slide="prev">
+	                                      <span class="symbol prev chevron-left">&#xF104</span>
+	                                      <span class="sr-only visually-hidden">Previous</span>
+	                                     </a>
+	                                    <a class="carousel-control-next" href="#slideshow{contentObjectData.uid}" data-bs-target="#slideshow{contentObjectData.uid}" type="button" data-slide="next"  data-bs-slide="next">
+	                                      <span class="symbol next chevron-right">&#xF105</span>
+	                                      <span class="sr-only visually-hidden">Next</span>
+	                                    </a>
+	                                </div>  
+	                            </f:if> 
+	                             <!-- Left and right controls -- END -->
+  							
+							    </div>
+ 							</f:then>
+						    <f:else>
+						    
+								<f:for each="{news}" as="newsItem" iteration="iterator">
+								    <f:if condition="{iterator.isFirst}">
+								        <div class="row align-items-stretch">
+								    </f:if>
+								
+								    <f:if condition="{iterator.cycle} % 3">
+								        <f:then>
+								            <f:render partial="List/ThreeItemsStat" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+								        </f:then>
+								
+								        <f:else>
+								            <f:render partial="List/ThreeItemsStat" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+								
+								            <f:if condition="{iterator.isLast}">
+								                <f:then></f:then>
+								                <f:else>
+								                    </div><div class="row">
+								                </f:else>
+								            </f:if>
+								        </f:else>
+								    </f:if>
+								
+								    <f:if condition="{iterator.isLast}">
+								        </div>
+								    </f:if>
+								</f:for>
+							        
+						    </f:else>
+					    </f:if>    
+			   		</div>	 	 
+    	       	</f:if>
+
+
+    		</f:then>
+    		<f:else>
+    			<div class="no-news-found">
+    				<p><f:translate key="list_nonewsfound" /></p>
+    			</div>
+    		</f:else>
+    	</f:if>
+    	<!--TYPO3SEARCH_begin-->
+    </f:section>
+</html>

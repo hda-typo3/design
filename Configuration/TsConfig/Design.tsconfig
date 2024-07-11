@@ -1,0 +1,128 @@
+TCEFORM {
+    tt_content {
+        frame_class {
+            removeItems = ruler-before, ruler-after, indent, indent-left, indent-right, white, grey, colored
+            disableNoMatchingValueElement = 1
+            types { 
+                textmedia{
+                    addItems { 
+                    	starter = Page Header Element
+                    }
+                }   
+                text{
+                    addItems { 
+                    	projectnavi  = Subnavi
+                    	starter = Page Header Element
+                    }
+                }                        
+                list{
+                    addItems { 
+                    }
+                }     
+                1cols{
+                    addItems { 
+                    	starter = Page Header Element
+                    }
+                }   
+                2cols{
+                    addItems { 
+                    	extended = Corporate
+                    }
+                }   
+                3cols{
+                    addItems { 
+                    }
+                } 
+                
+                4cols{
+                    addItems { 
+                    }
+                }   
+                 
+                slideshow{
+                    addItems { 
+                    }
+                }                 
+                header {
+                     addItems { 
+                    }               
+                }
+                                          
+        }
+    }
+} 
+
+
+
+
+
+# Link to top disable ***
+TCEFORM.tt_content.linkToTop.disabled = 1   
+
+TCEFORM.tt_content.CType {
+   
+}
+
+
+# Remove all standard-layouts *******************************
+TCEFORM {
+    tt_content {
+        layout {
+            removeItems = 1,2,3
+            disableNoMatchingValueElement = 1
+            types {
+  
+            } 
+        }               
+    }
+}
+
+# Header definitions *******************
+# removing 0, so "Standard" is hidden
+TCEFORM {
+    tt_content {
+        header_layout {
+            removeItems = 0,1,5,6
+            disableNoMatchingValueElement = 1
+            altLabels {
+                1 = H1
+                2 = H2
+                3 = H3
+                4 = H4
+                5 = H5
+                6 = H6          
+                }
+        }               
+    }
+}
+
+
+TCEFORM {
+    tt_content {
+        space_before_class {
+            removeItems = extra-small,small, medium, large, extra-large
+            addItems {
+                    20px = kleiner Abstand
+                    30px = halber Abstand
+                    60px = ganzer Abstand
+                    120px = grosser Abstand                  
+            }
+        }
+    }
+}   
+
+TCEFORM {
+    tt_content {
+        space_after_class {
+            removeItems = extra-small,small, medium, large, extra-large
+            addItems {
+                    20px = kleiner Abstand
+                    30px = halber Abstand
+                    60px = ganzer Abstand
+                    120px = grosser Abstand     
+                }
+        }
+    }
+}     
+
+

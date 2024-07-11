@@ -1,0 +1,3 @@
+# BACKENDLAYOUTS with left navigation #
+
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:design/Configuration/TsConfig/Layouts" extensions="tsconfig">

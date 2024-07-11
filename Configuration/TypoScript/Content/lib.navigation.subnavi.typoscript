@@ -1,0 +1,30 @@
+lib.leveltitle = TEXT
+lib.leveltitle.data = leveltitle : 1, slide
+lib.leveltitle.wrap = <div class="leveltitle px-3 py-4 col-3">|</div>
+
+lib.level = HMENU 
+lib.level {
+  entryLevel = 1
+  1 = TMENU
+  1.NO.allWrap = <span class="d-none">|</span>
+  1.NO.doNotLinkIt  = 1 
+  1.expAll = 1
+  2 < .1
+  2.NO.allWrap = <li class="p-4">|</li> 
+  2.NO.doNotLinkIt  = 0
+  2.CUR = 1  
+
+  2.CUR <  .1.NO
+  
+  2.CUR.allWrap = |  
+  2.CUR.wrapItemAndSub = <li class="cur p-4">|</li>
+  2.CUR.ATagParams = class="dropdown-item"  
+  2.wrap = <ul class="submenu d-flex">|</ul>
+}
+
+
+lib.navigation.subnavi = COA
+lib.navigation.subnavi.10 < lib.leveltitle
+lib.navigation.subnavi.20 < lib.level
+lib.navigation.subnavi.wrap = <div class="container d-none d-lg-flex py-0">|</div>
+

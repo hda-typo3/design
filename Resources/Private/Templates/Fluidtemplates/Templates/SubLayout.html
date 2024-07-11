@@ -1,0 +1,27 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+    <f:layout name="Standard" />
+    <f:section name="Content"> 
+        <f:render partial="Header.html" section="list" arguments="{_all}" />
+        <main id="content sublayout">
+        	<div class="overlay"></div>
+        	<div class="subnavi"><f:cObject typoscriptObjectPath="lib.navigation.subnavi" /></div>
+        	<div class="container col-12 sublayout contentarea content">
+				<f:if condition="{data.deltitle} != '1'">
+			   		<f:if condition="{data.showtitle} == 0">
+                    	<f:then>
+                     		<h1>{title}</h1>
+                     	</f:then> 
+                    	<f:else>
+                     		<h1 class="notvissible">{title}</h1>  
+                     	</f:else> 
+                	</f:if>
+			    </f:if>
+			    <!--TYPO3SEARCH_begin-->
+            		<f:format.raw>{content}</f:format.raw> 
+            	<!--TYPO3SEARCH_end-->  	
+               </div>  
+            </main>       
+    </f:section> 
+</html>
+

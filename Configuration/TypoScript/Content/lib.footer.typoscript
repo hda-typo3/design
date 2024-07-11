@@ -1,0 +1,30 @@
+
+
+
+lib.footer.logo-de = COA
+lib.footer.logo-de.10 = IMAGE
+lib.footer.logo-de.10 {
+    file                                = {$page.footer.logo}
+    altText                             = Link: {$page.header.alttext}
+    titleText                           = {$page.header.alttext}
+    params                              = type="logo" 
+    imageLinkWrap                       = 1
+    imageLinkWrap.enable                = 1 
+    imageLinkWrap.typolink.parameter    = {$page.header.home}    
+}
+lib.footer.logo-de.wrap = <div class="container"><div class="footerlogo col-12 col-md-6 col-lg-3 pt-4 px-3">|</div></div>
+
+
+lib.bewerben = COA
+lib.bewerben.if.isTrue 						= {$page.footer.bewerben} 
+lib.bewerben {
+	 10 									= RECORDS
+	 10.tables								= tt_content
+	 10.source 								= {$page.footer.bewerben}
+	 10.wrap 								= <div class="footer0"><div class="container px-3 py-5">|</div></div>
+}
+
+
+lib.footer.5  < lib.bewerben
+
+lib.footer.10.5 < lib.footer.logo-de
