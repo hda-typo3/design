@@ -7,7 +7,6 @@ $boot = function () {
     
     ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:design/Configuration/TsConfig/TCEImagePreDefinitions.tsconfig">');
     ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:design/Configuration/TsConfig/Design.tsconfig">');
-    ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:design/Configuration/TsConfig/Layouts.tsconfig">');
 };
 $boot();
 unset($boot);
