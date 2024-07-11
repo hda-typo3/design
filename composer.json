@@ -1,32 +1,32 @@
 {
-	"name" : "hda-typo3/design",
-	"description" : "Templating for h_da Design",
-	"authors" : [{
-			"name" : "Michael Lang",
-			"role" : "Developer",
-			"email" : "michael.lang@h-da.de"
-		}
-	],
-	"keywords" : [
-		"extension",
-		"t3up",
-	],
-	"type" : "typo3-cms-extension",
-	"license" : "GPL-2.0-or-later",
-	"require" : {
-		"t3ac/t3up" : "^11"
-	},
-    "autoload": {
-        "psr-4": {
-            "T3ac\\T3upContainer\\": "Classes"
-        }
+  "name": "hda-typo3/design",
+  "type": "typo3-cms-extension",
+  "description": "Templating for h_da Design",
+  "authors": [
+    {
+      "name": "Michael Lang",
+      "role": "Developer",
+      "email": "michael.lang@h-da.de"
+    }
+  ],
+  "license": ["GPL-2.0-or-later"],
+  "keywords": [
+    "extension",
+    "t3up"
+  ],
+  "require": {
+      "php": ">= 8.1 < 8.4",
+      "typo3/cms-core": "^11.5",
+      "t3ac/t3up": "^11"
     },
-	"replace" : {
-		"typo3-ter/container_example" : "self.version"
-	},
-	"extra" : {
-		"typo3/cms" : {
-			"extension-key" : "design"
-		}
-	}
+  "autoload": {
+    "psr-4": {
+      "T3ac\\T3upImage\\": "Classes"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "design"
+    }
+  }
 }
